@@ -1,10 +1,22 @@
 <%# show.html.erb %>
 
-<h2>Article Title: <%= @article.title %></h2>
-<p><strong>Article Body: </strong><%= @article.body %></p>
+<h2>Show Task</h2>
 
-<br>
-<li>
-  <%= link_to "Delete This Article", ??_article_path(article) %> # article_path(article)  ?
-</li>
+
+<table>
+  <tr>
+    <th id="name">Name</th>
+    <th id="description">Description</th>
+    <th id="man_hours">Man Hours</th>
+    <th id="resources">Resources</th>
+    <th id="completion_date">Completion Date</th>
+  </tr>
+  <tr>
+    <td><%= "#{task.name}" %></td>
+    <td><%= "#{task.description}" %></td>
+    <td><%= "#{task.man_hours}" %></td>
+    <td><%= "#{task.resources}" %></td>
+    <td><%= "#{task.completion_date}" %></td>
+  </tr>
+</table>
 

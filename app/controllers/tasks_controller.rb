@@ -7,39 +7,39 @@ class TasksController < ApplicationController
   end
 
   def new
-    @post = Task.new
+    @task = Task.new
   end
 
   def create
-    @post = Task.new params[:task]
-    if @post.save
-      redirect_to posts_path
+    @task = Task.new params[:task]
+    if @task.save
+      redirect_to tasks_path
     else
       render :action => 'new'
     end
   end
 
   def edit
-    @post = Task.find params[:id]
+    @task = Task.find params[:id]
   end
 
   def update
-    @post = Task.find params[:id]
-    if @post.update_attributes params[:task]
-      redirect_to posts_path
+    @task = Task.find params[:id]
+    if @task.update_attributes params[:task]
+      redirect_to tasks_path
     else
       render :action => :edit
     end
   end
 
   def destroy
-    @post = Task.find params[:id]
-    @post.destroy
-    redirect_to posts_path
+    @task = Task.find params[:id]
+    @task.destroy
+    redirect_to tasks_path
   end
 
   def show
-    @post = Task.find params[:id]
+    @task = Task.find params[:id]
   end
 
 end
