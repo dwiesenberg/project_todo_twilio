@@ -10,7 +10,7 @@
 <td><%= "#{task.completion_date}" %></td>
 
 <td><%= link_to "Show Task", task_path(:id) %></td>
-
+<td><%= link_to "Delete Task", task_path(:id), data: {confirm: "Are you sure?"}, :method => :delete %></td>
 
 
 
