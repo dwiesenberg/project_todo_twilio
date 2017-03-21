@@ -17,6 +17,14 @@
 
   <body>
 
+    <div class="container">
+      <% flash.each do |type, message| %>
+        <div class="flash-notice">
+          <strong/><%= message %></strong>
+        </div>
+      <% end %>
+    </div>
+
     <%= yield %>
   
     <br>

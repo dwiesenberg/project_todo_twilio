@@ -17,6 +17,7 @@
     <td><%= "#{task.man_hours}" %></td>
     <td><%= "#{task.resources}" %></td>
     <td><%= "#{task.completion_date}" %></td>
+    <td><%= link_to "Edit Task", task_path(:id) %></td>
     <td><%= link_to "Delete Task", task(:id) %></td>
   </tr>
 </table>

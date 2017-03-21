@@ -1,15 +1,28 @@
 <%# edit.html.erb %>
 
-<h2>Update Article #<%= @article.id %></h2>
-
-<form action="<%= article_path(@article) %>" method="post">
-  <input  type="hidden" 
-    name="authenticity_token" 
-    value="<%= form_authenticity_token %>">
-  <input name="_method" type="hidden" value="PATCH">
-
-  <input name="article[title]" type="text" placeholder="Name" value="<%= @article.title %>"><br>
-  <textarea rows="4" cols="30" name="article[body]" placeholder="<%= @article.body %>"></textarea>
+<form action="<%= task_path(@task) %>" method="post">
   <br>
-  <input type="submit" value="Submit!">
+  <fieldset>
+    <legend><strong>Edit Task</strong></legend>
+    <input  type="hidden" 
+      name="authenticity_token" 
+      value="<%= form_authenticity_token %>">
+    <input name="_method" type="hidden" value="PATCH"
+
+    <br>
+    Name:<br>
+    <input name="task[name]" type="text" value="<%= @task.name %>">
+      <br><br>
+    Description:<br>
+    <textarea name="task[description]" rows="5" cols="50" value="<%= @task.description %>"></textarea><br><br>
+    Man Hours:<br>
+    <input name="task[man_hours]" type="number" value="<%= @task.man_hours %>"><br><br>
+    Resources:<br>
+    <input name="task[resources]" type="number" value="<%= @task.resources %>"><br><br>
+    Completion Date:<br>
+    <input name="task[completion_date]" type="date" 
+      value="<%= @task.completion_date %>"><br><br>
+
+    <input type="submit" value="Submit!"><br><br>
+  </fieldset>
 </form>
