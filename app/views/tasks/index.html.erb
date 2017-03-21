@@ -1,0 +1,20 @@
+<%# index.html.erb %>
+
+<h2>Tasks List</h2>
+
+
+<table>
+  <tr>
+    <th id="name">Name</th>
+    <th id="description">Description</th>
+    <th id="man_hours">Man Hours</th>
+    <th id="resources">Resources</th>
+    <th id="completion_date">Completion Date</th>
+  </tr>
+    <% @tasks.each do |task| %>
+      <tr>
+        <%= render task %>
+      </tr>
+    <% end %> 
+</table>
+

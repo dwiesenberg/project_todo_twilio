@@ -11,6 +11,3 @@ Brief Description: An exercise to get familiar with RAILS by working with MVC an
 User: A Project Manager 
 
 Author: DAVID WIESENBERG
-
-
-
