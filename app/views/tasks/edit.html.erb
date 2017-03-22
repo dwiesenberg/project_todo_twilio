@@ -14,9 +14,9 @@
     <input name="task[name]" type="text" value="<%= @task.name %>">
       <br><br>
     Description:<br>
-    <textarea name="task[description]" rows="5" cols="50" value="<%= @task.description %>"></textarea><br><br>
+    <textarea name="task[description]" rows="5" cols="50"><%= @task.description %></textarea><br><br>
     Man Hours:<br>
-    <input name="task[man_hours]" type="number" value="<%= @task.man_hours %>"><br><br>
+    <input name="task[man_hours]" type="number" step="0.1" value="<%= @task.man_hours %>"><br><br>
     Resources:<br>
     <input name="task[resources]" type="number" value="<%= @task.resources %>"><br><br>
     Completion Date:<br>

@@ -16,7 +16,7 @@ class TasksController < ApplicationController
       flash[:notice] = "Task '#{@task.name}' Created!"
       redirect_to tasks_path
     else
-      flash[:notice] = "Creation Failed --- '#{@task.name}' Not Added!}"
+      flash[:notice] = "Creation Failed --- '#{@task.name}' Not Added! #{@task.errors.full_messages}"
       render :action => 'new'
     end
   end
@@ -36,15 +36,36 @@ class TasksController < ApplicationController
     end
   end
 
-  def destroy
+ def destroy
     @task = Task.find params[:id]
     if @task.destroy
-      flash[:notice] = "Task '#{@task.name}' Deleted!"
+      flash[:notice] = "Task '#{@task.name}' Deleted (Reversible)!"
     else
       flash[:notice] = "Deletion Failed --- '#{@task.name}' Not Removed!}"
     end
     redirect_to tasks_path
   end
+
+ #  def soft_delete
+ #    @task = Task.find params[:id]
+ #    if @task.destroy
+ #      flash[:notice] = "Task '#{@task.name}' Deleted (Reversible)!"
+ #      render :action => :edit_
+ #    else
+ #      flash[:notice] = "Deletion Failed --- '#{@task.name}' Not Removed!}"
+ #    end
+ #    redirect_to tasks_path
+ #  end
+
+ # def hard_delete
+ #    @task = Task.find params[:id]
+ #    if @task.destroy
+ #      flash[:notice] = "Task '#{@task.name}' Deleted (Irreversible)!"
+ #    else
+ #      flash[:notice] = "Deletion Failed --- '#{@task.name}' Not Removed!}"
+ #    end
+ #    redirect_to tasks_path
+ #  end
 
   def show
     @task = Task.find params[:id]
@@ -54,7 +75,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:name, :description, :man_hours, :resources, :completion_date)
+    params.require(:task).permit(:name, :description, :man_hours, :resources, :completion_date, :deleted)
   end
 
 

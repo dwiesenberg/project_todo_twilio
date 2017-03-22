@@ -1,0 +1,29 @@
+<%# show.html.erb %>
+
+<h2>Show Task</h2>
+
+
+<table>
+  <tr>
+    <th id="name">Name</th>
+    <th id="description">Description</th>
+    <th id="man_hours">Man Hours</th>
+    <th id="resources">Resources</th>
+    <th id="completion_date">Completion Date</th>
+  </tr>
+  <tr>
+    <td><%= "#{task.name}" %></td>
+    <td><%= "#{task.description}" %></td>
+    <td><%= "#{task.man_hours}" %></td>
+    <td><%= "#{task.resources}" %></td>
+    <td><%= "#{task.completion_date}" %></td>
+    <td><%= link_to "Edit Task", task_path(:id) %></td>
+    <td><%= link_to "Delete Task", task(:id) %></td>
+  </tr>
+</table>
+
+
+<!-- Soft and Hard deletes logic-to-amend-text TODO -->
+
+    <!-- <td><%= link_to "Soft Delete", task_path(:id), data: {confirm: "Are you sure?"}, :method => :destroy %></td> -->
+    <!-- <td><%= link_to "Hard Delete", task_path(:id), data: {confirm: "Are you sure?"}, :method => :destroy %></td> -->

@@ -3,18 +3,23 @@
 <%# list item %>
 
 
-<td><%= "#{task.name}" %></td>
-<td><%= "#{task.description}" %></td>
-<td><%= "#{task.man_hours}" %></td>
-<td><%= "#{task.resources}" %></td>
-<td><%= "#{task.completion_date}" %></td>
 
-<td><%= link_to "Show Task", task_path(:id) %></td>
-<td><%= link_to "Edit Task", task_path(:id) %></td> 
-  <%# needs "/edit" after ":id" ... how? %>
-<td><%= link_to "Delete Task", task_path(:id), data: {confirm: "Are you sure?"}, :method => :delete %></td>
+<td <%= "class=soft_delete" if task.deleted %>><%= "#{task.name}" %></td>
+<td <%= "class=soft_delete" if task.deleted %>><%= "#{task.description}" %></td>
+<td <%= "class=soft_delete" if task.deleted %>><%= "#{task.man_hours}" %></td>
+<td <%= "class=soft_delete" if task.deleted %>><%= "#{task.resources}" %></td>
+<td <%= "class=soft_delete" if task.deleted %>><%= "#{task.completion_date}" %></td>
+<td <%= "class=soft_delete" if task.deleted %>><%= "#{task.deleted}" %></td>
 
+<td><%= link_to "Show Task", task_path(task) %></td>
+<td><%= link_to "Edit Task", edit_task_path(task) %></td> 
+<td><%= link_to "Hard Delete", task_path(task), data: {confirm: "Are you sure?"}, :method => :delete %></td>   
+<td><%= link_to "Soft Delete", task_path(task, :task => {:deleted => true}), :method => :patch %></td>
+<td><%= link_to "Undo Soft Delete", task_path(task, :task => {:deleted => false}), :method => :patch %></td>
 
+<!-- task_path(task) is short for task_path(task.id) -->
+
+<!-- Soft and Hard deletes logic-to-amend-text TODO -->
 
 
 
